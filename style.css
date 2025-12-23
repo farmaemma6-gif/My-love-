@@ -1,0 +1,74 @@
+:root {
+    --text-color: #f0f0f0;
+    --accent: #ff85a1;
+}
+
+body, html {
+    margin: 0; padding: 0; height: 100vh; overflow: hidden;
+    background: #050505; font-family: 'Montserrat', sans-serif;
+}
+
+.world { position: relative; width: 100%; height: 100%; perspective: 1200px; }
+
+/* Cinematic Background */
+.sky {
+    position: absolute; width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 10%, #2c3e50 0%, #000 100%);
+}
+
+.mountain-layer {
+    position: absolute; bottom: -5%; width: 110%; height: 80%;
+    background-size: cover; background-position: bottom;
+    transition: transform 0.2s ease-out;
+}
+
+.layer-1 {
+    background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80');
+    z-index: 1; filter: blur(6px) brightness(0.3); transform: translateZ(-200px) scale(1.5);
+}
+
+.layer-2 {
+    background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=90');
+    z-index: 2; filter: brightness(0.5); transform: translateZ(0) scale(1.1); left: -5%;
+}
+
+.fog {
+    position: absolute; bottom: 0; width: 100%; height: 40%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    z-index: 3; pointer-events: none;
+}
+
+#fxCanvas { position: absolute; top: 0; left: 0; z-index: 5; pointer-events: none; }
+
+/* Message Component */
+.msg-node {
+    position: absolute; top: -100%; width: 100%;
+    display: flex; flex-direction: column; align-items: center; z-index: 10;
+}
+
+/* Realistic Worm Structure */
+.worm-3d { display: flex; align-items: center; }
+.seg {
+    width: 12px; height: 12px; background: #96e032; border-radius: 50%;
+    box-shadow: inset -2px -2px 6px rgba(0,0,0,0.4), 0 0 10px rgba(150,224,50,0.3);
+    margin: 0 -2px;
+}
+
+.silk { width: 1px; height: 150px; background: rgba(255,255,255,0.2); }
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(30px) saturate(150%);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px; padding: 50px 70px;
+    box-shadow: 0 50px 100px rgba(0,0,0,0.8);
+    text-align: center; max-width: 75%;
+    transform-style: preserve-3d;
+}
+
+.glass-card h1 {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    color: var(--text-color); font-size: 2rem; margin: 0;
+    line-height: 1.4; opacity: 0;
+}
